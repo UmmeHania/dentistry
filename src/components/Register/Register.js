@@ -4,6 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import './Register.css'
 import auth from '../firebase.init';
+import GoogleLogin from '../Login/GoogleLogin/GoogleLogin';
 
 const Register = () => {
     const [
@@ -57,19 +58,10 @@ const Register = () => {
                 </Button>
 
             </Form>
-            {/* <p className='mt-2'>Already registered? <span className='text-primary'><Link className='form-link' to='/login'>Please Login here!</Link></span></p> */}
+
             <p>Already have an account? <Link to="/login" className='text-primary text-decoration-none' onClick={navigateLogin}>Please Login</Link> </p>
+            <GoogleLogin></GoogleLogin>
 
-
-
-
-
-            {/* <form >
-                <input type="text" name="name" id="" placeholder='Your Name' />
-                <input type="email" name="email" id="" placeholder='Email Address' required />
-                <input type="password" name="password" id="" placeholder='Password' required />
-                <input type="submit" value="Register" />
-            </form> */}
         </div>
     );
 };
