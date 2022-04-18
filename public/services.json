@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title": "TEETH WHITENING",
+        "desc": "Rejuvenate your smile with brighter, white teeth !",
+        "img": "https://www.laserdentalbd.com/wp-content/uploads/2019/11/TEETH-WHITENING.png.webp",
+        "price": "$100"
+    },
+    {
+        "id": 2,
+        "title": "DENTAL BRACES",
+        "desc": "Don't worry about irregular teeth. You will smile again conf ently with straight teeth.",
+        "img": "https://www.laserdentalbd.com/wp-content/uploads/2019/11/DENTAL-BRACES.png",
+        "price": "$250"
+    },
+    {
+        "id": 3,
+        "title": "ROOT CANAL",
+        "desc": "No more 3-5 days for Root Canal Treatment. We are offering single appointment Root Canal Treatment !",
+        "img": "https://www.laserdentalbd.com/wp-content/uploads/2019/11/ROOT-CANAL-TREATMENT.png",
+        "price": "$300"
+    }
+]
