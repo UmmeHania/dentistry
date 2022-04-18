@@ -11,10 +11,7 @@ const GoogleLogin = () => {
     let errorElement;
 
     if (error) {
-        errorElement = <div>
-            <p className='text-danger'>Error: {error.message}</p>
-        </div>
-
+        errorElement = <p className='text-danger'>Error: {error.message}</p>
     }
     if (user) {
         navigate('/checkout')
@@ -28,8 +25,9 @@ const GoogleLogin = () => {
                 <p className='mt-2 px-2'>or</p>
                 <div style={{ height: '1px' }} className='bg-dark w-50'></div>
             </div>
+            {errorElement}
             <div className='text-center'>
-                <button onClick={() => signInWithGoogle()} className='btn custom w-50 bg-white border-1'> <img style={{ width: '30px' }} src={google} alt="" /> <span className='fw-bold'>Google Sign In</span></button>
+                <button onClick={() => signInWithGoogle()} className='custom w-50 bg-white border-1'> <img style={{ width: '30px' }} src={google} alt="" /> <span className='fw-bold'>Google Sign In</span></button>
             </div>
         </div>
     );

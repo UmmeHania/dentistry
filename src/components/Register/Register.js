@@ -53,14 +53,14 @@ const Register = () => {
                     <Form.Control type="password" name='password' placeholder="Password" />
                 </Form.Group>
 
-                <Button variant="primary" type="register">
+                <Button className='w-50 mx-auto d-block' variant="primary" type="register">
                     Register
                 </Button>
-
+                <p className='mt-3'>Already have an account? <Link to="/login" className='text-primary text-decoration-none' onClick={navigateLogin}>Please Login</Link> </p>
+                <GoogleLogin></GoogleLogin>
             </Form>
 
-            <p>Already have an account? <Link to="/login" className='text-primary text-decoration-none' onClick={navigateLogin}>Please Login</Link> </p>
-            <GoogleLogin></GoogleLogin>
+
 
         </div>
     );
