@@ -1,10 +1,16 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from 'react-router-dom';
 import logo2 from '../../Assets/logo2.png'
+import auth from '../../firebase.init';
 import './Header.css'
-
 const Header = () => {
+    const [user] = useAuthState(auth);
+    const handleSignOut = () => {
+        signOut(auth);
+    }
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light" sticky="top">
@@ -44,40 +50,20 @@ const Header = () => {
                             >
                                 CHECKOUT
                             </NavLink>
-                            <NavLink
-                                className="link"
-                                to="/register"
-
-                            >
-                                REGISTER
-                            </NavLink>
-                            <NavLink
-                                className="link"
-                                to="/login"
-
-                            >
-                                LOGIN
-                            </NavLink>
-                            {/* {
-                                user.displayName && <h5 className="text-white">{user?.displayName}</h5>
-                            }
 
                             {
-                                user?.email ? <NavLink
-                                    className="link"
-                                    to="/login"
-                                 
-                                >
-                                    <Button onClick={LogOut}>LOGOUT</Button>
-                                </NavLink> :
+                                user ?
+                                    <button className='btn btn-primary text-decoration-none ' onClick={handleSignOut}>SIGN OUT</button>
+                                    :
                                     <NavLink
                                         className="link"
                                         to="/login"
-                                       
+
                                     >
                                         LOGIN
                                     </NavLink>
-                            } */}
+                            }
+
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
