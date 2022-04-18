@@ -3,8 +3,11 @@ import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../firebase.init';
+import Loading from '../Home/Loading/Loading';
 import GoogleLogin from './GoogleLogin/GoogleLogin';
 import './login.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -20,6 +23,7 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
     if (error) {
         errorElement = <p className='text-danger'>Error: {error.message}</p>
     }
@@ -36,8 +40,14 @@ const Login = () => {
 
     const resetPassword = async () => {
         const email = emailRef.current.value;
-        await sendPasswordResetEmail(email);
-        alert('Sent email');
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
+        }
+        else {
+            toast('Please provide an email address')
+        }
+
     }
 
     const handleSubmit = event => {
@@ -48,6 +58,11 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
 
     }
+
+    if (loading) {
+        return <Loading></Loading>
+    }
+
     return (
         <div className='container w-50 mx-auto'>
             <h1 className='text-primary text-center fw-bold'>Please login!</h1>
@@ -64,8 +79,9 @@ const Login = () => {
                 </Button></div>
                 {errorElement}
                 <p className='mt-3'>New to DENTISTRY? <span className='text-primary'><Link className='form-link' onClick={navigateRegister} to='/register'>Please Register here!</Link></span></p>
-                <p className='mt-3'>Forget Password? <span className='text-primary'><Link className='form-link' onClick={resetPassword} to='/register'>Reset password </Link></span></p>
+                <p className='mt-3'>Forget Password? <span className='text-primary'><button className='btn btn-link text-decoration-none' onClick={resetPassword} >Reset password </button></span></p>
                 <GoogleLogin></GoogleLogin>
+                <ToastContainer></ToastContainer>
             </Form>
 
         </div>
