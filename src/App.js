@@ -9,6 +9,7 @@ import Header from './components/Home/Header/Header';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import RequireAuth from './components/Login/RequireAuth/RequireAuth';
+import NotFound from './components/NotFound/NotFound';
 import Register from './components/Register/Register';
 
 
@@ -27,6 +28,7 @@ function App() {
         } />
         <Route path='/login' element={<Login></Login>} />
         <Route path='/register' element={<Register></Register>} />
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
 
