@@ -1,6 +1,6 @@
 # Dentistry
 
-## [Live Site Link](https://gadgeterabyhania.netlify.app/)
+## [Live Site Link](https://dental-care-e05d3.web.app/)
 
 > About this project:
 
