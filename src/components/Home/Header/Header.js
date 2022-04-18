@@ -3,7 +3,7 @@ import React from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from 'react-router-dom';
-import logo1 from '../../Assets/logo1.png'
+import logo2 from '../../Assets/logo2.png'
 import auth from '../../firebase.init';
 import './Header.css'
 const Header = () => {
@@ -15,7 +15,7 @@ const Header = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light" sticky="top">
                 <Container>
-                    <Navbar.Brand href="#home"><img src={logo1} height="90px" alt="" /></Navbar.Brand>
+                    <Navbar.Brand href="#home"><img src={logo2} height="90px" alt="" /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
